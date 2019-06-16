@@ -101,10 +101,20 @@ public class CalculatorViewModel implements Serializable {
                 expression += character;
             }
         } else if (character == '.') {
-            if (expression.length() != 0 || isDigit(expression.charAt(expression.length() - 1))) {
+            if (expression.length() != 0 && isDigit(expression.charAt(expression.length() - 1)) &&
+                    (!expression.contains(".") || expression.lastIndexOf('.') < lastIndexOfSign(expression))) {
                 expression += character;
             }
         }
         updateResult();
+    }
+
+    private int lastIndexOfSign(String expression) {
+        for (int i = expression.length() - 1; i >= 0; i--) {
+            if (isSign(expression.charAt(i))) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
