@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <!-- load other css, js and resources -->
+</h:head>
+<h:body>
+    <f:facet name="last">
+        <h:outputStylesheet name="css/style.css"/>
+    </f:facet>
+
+    <h:form id="indexForm">
+        <div class="center-screen">
+            <div style="width: 400px; height: 200px;">
+                <h:outputLabel style="color: darkred; font-size: 30px; font-family: Lobster, cursive"
+                               value="Добро пожаловать в AlmWorksCalculator. Войдите в свой аккаунт, либо зарегистрируйтесь!"/>
+            </div>
+            <div style="width: 600px; height: 200px;">
+                <p:commandButton value="Регистрация" style="margin: 3px" ajax="false" action="/register.xhtml"/>
+                <p:commandButton value="Вход" style="margin: 3px" ajax="false" action="/login.xhtml"/>
+            </div>
+        </div>
+    </h:form>
+
+</h:body>
+</html>

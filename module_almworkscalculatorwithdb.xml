@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_almworkscalculatorwithdb" default="compile.module.almworkscalculatorwithdb">
+  <dirname property="module.almworkscalculatorwithdb.basedir" file="${ant.file.module_almworkscalculatorwithdb}"/>
+  
+  <property name="module.jdk.home.almworkscalculatorwithdb" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.almworkscalculatorwithdb" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.almworkscalculatorwithdb" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.almworkscalculatorwithdb" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="almworkscalculatorwithdb.output.dir" value="${module.almworkscalculatorwithdb.basedir}/out/production/AlmWorksCalculatorWithDB"/>
+  <property name="almworkscalculatorwithdb.testoutput.dir" value="${module.almworkscalculatorwithdb.basedir}/out/test/AlmWorksCalculatorWithDB"/>
+  
+  <path id="almworkscalculatorwithdb.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="almworkscalculatorwithdb.module.production.classpath">
+    <path refid="${module.jdk.classpath.almworkscalculatorwithdb}"/>
+    <path refid="library.glassfish_5.0.0_-_ejb.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_jsf.classpath"/>
+    <path refid="library.glassfish_5.0.0.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_cdi:_contexts_and_dependency_injection.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_restful_web_service.classpath"/>
+    <path refid="library.java_ee_6-java_ee_6.classpath"/>
+    <path refid="library.hibernate_5.4.2-5.4.2.classpath"/>
+    <path refid="library.primefaces-6.1.classpath"/>
+  </path>
+  
+  <path id="almworkscalculatorwithdb.runtime.production.module.classpath">
+    <pathelement location="${almworkscalculatorwithdb.output.dir}"/>
+    <path refid="library.java_ee_6-java_ee_6.classpath"/>
+    <path refid="library.hibernate_5.4.2-5.4.2.classpath"/>
+    <path refid="library.primefaces-6.1.classpath"/>
+  </path>
+  
+  <path id="almworkscalculatorwithdb.module.classpath">
+    <path refid="${module.jdk.classpath.almworkscalculatorwithdb}"/>
+    <pathelement location="${almworkscalculatorwithdb.output.dir}"/>
+    <path refid="library.glassfish_5.0.0_-_ejb.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_jsf.classpath"/>
+    <path refid="library.glassfish_5.0.0.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_cdi:_contexts_and_dependency_injection.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_restful_web_service.classpath"/>
+    <path refid="library.java_ee_6-java_ee_6.classpath"/>
+    <path refid="library.hibernate_5.4.2-5.4.2.classpath"/>
+    <path refid="library.primefaces-6.1.classpath"/>
+  </path>
+  
+  <path id="almworkscalculatorwithdb.runtime.module.classpath">
+    <pathelement location="${almworkscalculatorwithdb.testoutput.dir}"/>
+    <pathelement location="${almworkscalculatorwithdb.output.dir}"/>
+    <path refid="library.glassfish_5.0.0_-_ejb.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_jsf.classpath"/>
+    <path refid="library.glassfish_5.0.0.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_cdi:_contexts_and_dependency_injection.classpath"/>
+    <path refid="library.glassfish_5.0.0_-_restful_web_service.classpath"/>
+    <path refid="library.java_ee_6-java_ee_6.classpath"/>
+    <path refid="library.hibernate_5.4.2-5.4.2.classpath"/>
+    <path refid="library.primefaces-6.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.almworkscalculatorwithdb">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.almworkscalculatorwithdb">
+    <patternset refid="excluded.from.module.almworkscalculatorwithdb"/>
+  </patternset>
+  
+  <path id="almworkscalculatorwithdb.module.sourcepath">
+    <dirset dir="${module.almworkscalculatorwithdb.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.almworkscalculatorwithdb" depends="compile.module.almworkscalculatorwithdb.production,compile.module.almworkscalculatorwithdb.tests" description="Compile module AlmWorksCalculatorWithDB"/>
+  
+  <target name="compile.module.almworkscalculatorwithdb.production" depends="register.custom.compilers" description="Compile module AlmWorksCalculatorWithDB; production classes">
+    <mkdir dir="${almworkscalculatorwithdb.output.dir}"/>
+    <javac2 destdir="${almworkscalculatorwithdb.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.almworkscalculatorwithdb}/javac">
+      <compilerarg line="${compiler.args.almworkscalculatorwithdb}"/>
+      <bootclasspath refid="almworkscalculatorwithdb.module.bootclasspath"/>
+      <classpath refid="almworkscalculatorwithdb.module.production.classpath"/>
+      <src refid="almworkscalculatorwithdb.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.almworkscalculatorwithdb"/>
+    </javac2>
+    
+    <copy todir="${almworkscalculatorwithdb.output.dir}">
+      <fileset dir="${module.almworkscalculatorwithdb.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.almworkscalculatorwithdb.tests" depends="register.custom.compilers,compile.module.almworkscalculatorwithdb.production" description="compile module AlmWorksCalculatorWithDB; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.almworkscalculatorwithdb" description="cleanup module">
+    <delete dir="${almworkscalculatorwithdb.output.dir}"/>
+    <delete dir="${almworkscalculatorwithdb.testoutput.dir}"/>
+  </target>
+</project>

@@ -1,0 +1,136 @@
+th {
+    height: 120px;
+    background-color: #94767a;
+    display: block;
+}
+
+table {
+    margin: 5% auto;
+}
+
+input {
+    width: 95%;
+    height: 100%;;
+    border: 2px solid #685061;
+    background-color: antiquewhite;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #c3dfff;
+}
+
+form {
+    height: 100%;
+    width: 100%;
+}
+
+
+button {
+    width: 100%;
+    margin-right: 0 !important;
+    background-color: #647d63 !important;
+}
+
+.ui-button-icon-only {
+    width: 100%;
+}
+
+.ui-icon-custom span {
+    width: 100%;
+    height: 100%;
+    background-position: 50% 50%;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 0 !important;
+}
+
+.ui-icon-plus {
+    background-image: url("#{resource['images/plus.png']}") !important;
+}
+
+.ui-icon-zero {
+    background-image: url("#{resource['images/zero.png']}") !important;
+}
+
+.ui-icon-one {
+    background-image: url("#{resource['images/one.png']}") !important;
+}
+
+.ui-icon-two {
+    background-image: url("#{resource['images/two.png']}") !important;
+}
+
+.ui-icon-three {
+    background-image: url("#{resource['images/three.png']}") !important;
+}
+
+.ui-icon-four {
+    background-image: url("#{resource['images/four.png']}") !important;
+}
+
+.ui-icon-five {
+    background-image: url("#{resource['images/five.png']}") !important;
+}
+
+.ui-icon-six {
+    background-image: url("#{resource['images/six.png']}") !important;
+}
+
+.ui-icon-seven {
+    background-image: url("#{resource['images/seven.png']}") !important;
+}
+
+.ui-icon-eight {
+    background-image: url("#{resource['images/eight.png']}") !important;
+}
+
+.ui-icon-nine {
+    background-image: url("#{resource['images/nine.png']}") !important;
+}
+
+.ui-icon-multiply {
+    background-image: url("#{resource['images/multiply.png']}") !important;
+}
+
+.ui-icon-minus {
+    background-image: url("#{resource['images/minus.png']}") !important;
+}
+
+.ui-icon-division {
+    background-image: url("#{resource['images/division.png']}") !important;
+}
+
+.ui-icon-equal {
+    background-image: url("#{resource['images/equal.png']}") !important;
+}
+
+.ui-icon-ratio {
+    background-image: url("#{resource['images/ratio.png']}") !important;
+}
+
+.ui-icon-clear {
+    background-image: url("#{resource['images/clear.png']}") !important;
+}
+
+.ui-icon-backspace {
+    background-image: url("#{resource['images/backspace.png']}") !important;
+}
+
+.ui-icon-comma {
+    background-image: url("#{resource['images/comma.png']}") !important;
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.width-50-perc {
+    width: 50%;
+}
