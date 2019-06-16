@@ -13,4 +13,7 @@
     <module id="AlmWorksCalculatorWithDB-EJB">
         <ejb>ejb.jar</ejb>
     </module>
+    <module id="EJBmodule-EJB">
+        <ejb>EJBmodule.jar</ejb>
+    </module>
 </application>

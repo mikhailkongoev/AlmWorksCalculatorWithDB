@@ -1,18 +1,30 @@
 package interfaces.model;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "query_history", schema = "new_schema", catalog = "calc")
 public class QueryHistory {
     private int id;
+    private User user;
     private String query;
     private double result;
-    private Timestamp date;
+    private Date date;
+
+    public QueryHistory() {
+    }
+
+    public QueryHistory(User user, String query, double result) {
+        this.user = user;
+        this.query = query;
+        this.result = result;
+        date = new Date();
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -44,11 +56,11 @@ public class QueryHistory {
 
     @Basic
     @Column(name = "date")
-    public Timestamp getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -66,5 +78,15 @@ public class QueryHistory {
     @Override
     public int hashCode() {
         return Objects.hash(id, query, result, date);
+    }
+
+    @OneToOne
+    @JoinColumn(name="user_")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
