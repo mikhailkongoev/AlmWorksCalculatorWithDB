@@ -54,6 +54,14 @@ public class UserViewModel implements Serializable {
         return "/calculator.xhtml";
     }
 
+    public String logOut() {
+        currentUser = null;
+        name = null;
+        password = null;
+        confirmPassword = null;
+        return "/index.xhtml";
+    }
+
     public User getCurrentUser() {
         return currentUser;
     }

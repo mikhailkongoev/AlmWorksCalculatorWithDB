@@ -5,7 +5,7 @@ import interfaces.local.HistoryServiceLocal;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CalculatorViewModel implements Serializable {
     @Inject
     private HistoryServiceLocal historyServiceLocal;

@@ -6,6 +6,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "query_history", schema = "new_schema", catalog = "calc")
+@NamedQuery(name = "findQueryHistoryByUser", query = "select h from QueryHistory h where user = :user and date >= " +
+        "coalesce(:date_from, h.date) and date <= coalesce(:date_to, h.date)")
 public class QueryHistory {
     private int id;
     private User user;
@@ -54,7 +56,7 @@ public class QueryHistory {
         this.result = result;
     }
 
-    @Basic
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
     public Date getDate() {
         return date;
