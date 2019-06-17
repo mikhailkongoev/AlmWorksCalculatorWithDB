@@ -28,6 +28,10 @@ public class HistoryViewModel implements Serializable {
         historyList = historyServiceLocal.findQueryHistory(userViewModel.getCurrentUser(), null, null);
     }
 
+    public void clearHistory() {
+        historyServiceLocal.clearHistory(userViewModel.getCurrentUser());
+    }
+
     public List<QueryHistory> getHistoryList() {
         return historyList;
     }

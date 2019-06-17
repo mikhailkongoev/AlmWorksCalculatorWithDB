@@ -13,4 +13,6 @@ public interface HistoryServiceLocal extends Serializable {
     QueryHistory logExpressionQuery(User user, String expression, double result);
 
     List<QueryHistory> findQueryHistory(User user, Date from, Date to);
+
+    void clearHistory(User user);
 }

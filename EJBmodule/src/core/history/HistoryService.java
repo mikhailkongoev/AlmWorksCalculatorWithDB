@@ -7,8 +7,8 @@ import interfaces.model.User;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.ParameterExpression;
 import java.util.Date;
 import java.util.List;
 
@@ -32,9 +32,17 @@ public class HistoryService implements HistoryServiceLocal {
         return queryHistory;
     }
 
+    /**
+     * Ищет историю запросов конкретного пользователя. Возможно, отфильтрованную по датам.
+     *
+     * @param user Пользователь, чью историю ищем
+     * @param from От какой даты искать
+     * @param to До какой даты искать
+     * @return Список запросов указанного пользователя в указанный промежуток времени.
+     */
     @Override
     public List<QueryHistory> findQueryHistory(User user, Date from, Date to) {
-        TypedQuery<QueryHistory> query = em.createNamedQuery("findQueryHistoryByUser", QueryHistory.class);
+        TypedQuery<QueryHistory> query = em.createNamedQuery("findQueryHistoriesByUser", QueryHistory.class);
         query.setParameter("user", user);
 
         if (from == null) {
@@ -46,5 +54,24 @@ public class HistoryService implements HistoryServiceLocal {
         query.setParameter("date_from", from);
         query.setParameter("date_to", to);
         return query.getResultList();
+    }
+
+    /**
+     * Очищает историю запросов по указанному пользователю.
+     * @param user Пользователь, чья история запросов должна быть очищена.
+     */
+    @Override
+    public void clearHistory(User user) {
+        Query query = em.createNamedQuery("deleteQueryHistoriesByUser");
+        query.setParameter("user", user);
+        query.executeUpdate();
+    }
+
+    public EntityManager getEm() {
+        return em;
+    }
+
+    public void setEm(EntityManager em) {
+        this.em = em;
     }
 }

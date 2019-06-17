@@ -6,8 +6,11 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "query_history", schema = "new_schema", catalog = "calc")
-@NamedQuery(name = "findQueryHistoryByUser", query = "select h from QueryHistory h where user = :user and date >= " +
-        "coalesce(:date_from, h.date) and date <= coalesce(:date_to, h.date)")
+@NamedQueries({
+        @NamedQuery(name = "findQueryHistoriesByUser", query = "select h from QueryHistory h where user = :user and date >= " +
+        "coalesce(:date_from, h.date) and date <= coalesce(:date_to, h.date)"),
+        @NamedQuery(name = "deleteQueryHistoriesByUser", query = "delete from QueryHistory h where user = :user")
+})
 public class QueryHistory {
     private int id;
     private User user;

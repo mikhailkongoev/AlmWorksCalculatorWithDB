@@ -64,4 +64,12 @@ public class UserService implements UserServiceLocal {
         List<User> res = query.getResultList();
         return res.isEmpty() ? null : res.get(0);
     }
+
+    public EntityManager getEm() {
+        return em;
+    }
+
+    public void setEm(EntityManager em) {
+        this.em = em;
+    }
 }

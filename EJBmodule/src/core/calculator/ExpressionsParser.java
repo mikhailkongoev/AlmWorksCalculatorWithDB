@@ -137,7 +137,7 @@ public class ExpressionsParser implements Parser {
 
     private String findNumber() throws Exception {
         boolean f = false;
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         while (c < a.length() && (Character.isDigit(a.charAt(c)) || a.charAt(c) == '.')) {
             if (a.charAt(c) == '.') {
                 if (!f) {
@@ -146,10 +146,10 @@ public class ExpressionsParser implements Parser {
                     throw new Exception("Incorrect insertion of data!");
                 }
             }
-            answer += a.charAt(c);
+            answer.append(a.charAt(c));
             c++;
         }
         c--;
-        return answer;
+        return answer.toString();
     }
 }
