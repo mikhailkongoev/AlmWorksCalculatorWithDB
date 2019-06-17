@@ -55,7 +55,7 @@
 
             <div style="width: 450px; height: 200px; margin-top: 10px">
                 <h:panelGrid style="background-color: antiquewhite; width: inherit;">
-                    <p:commandButton value="Очистить историю" style="margin: 3px" ajax="false" action="/#{historyViewModel.clearHistory}" update="historyForm"/>
+                    <p:commandButton value="Очистить историю" style="margin: 3px" ajax="false" action="#{historyViewModel.clearHistory}" update="historyForm"/>
                     <p:commandButton value="К калькулятору" style="margin: 3px" ajax="false" action="/calculator.xhtml"/>
                     <p:commandButton value="Выход" style="margin: 3px" ajax="false" action="#{userViewModel.logOut}"/>
                 </h:panelGrid>
